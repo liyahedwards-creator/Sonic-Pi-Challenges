@@ -1,6 +1,17 @@
 use_bpm 80
 use_synth :piano
 
+djo = "C:/Users/liyah_edwards/Downloads/Djo - end of beginning (drums).mp3"
+
+live_loop :ddjo do
+  1.times do
+    sample djo, amp:1
+    sleep 10
+  end
+  stop
+end
+
+sleep 0.5
 
 live_loop :bass1 do
   2.times do
@@ -10,7 +21,6 @@ live_loop :bass1 do
     sleep 0.5
     play :fs4
     sleep 1
-    
   end
   stop
 end
@@ -47,24 +57,14 @@ live_loop :dogs do
     play :fs4
     sleep 0.5
     
-    
     play :fs4
     sleep 0.5
   end
   stop
 end
 
-live_loop :drums do
-  8.times do
-    sample :bd_boom
-    sleep 1
-  end
-  stop
-end
-
-sleep 7
+sleep 4
 
 play :cs5
 sleep 0.5
 play :b4
-
