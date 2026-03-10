@@ -12,4 +12,4 @@ end
   num = num - 1
 end
 sample :drum_splash_hard
-print("HAPPY NEW YEAR")
+print("#done")
