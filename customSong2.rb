@@ -3,6 +3,7 @@ use_synth :sine
 lorde = "C:/Users/liyah_edwards/Downloads/Lorde - Royals (Instrumental).mp3"
 royals = "C:/Users/liyah_edwards/Downloads/Lorde - Royals [vocals only].mp3"
 lyrics ="C:/Users/liyah_edwards/Downloads/background.mp3"
+intro = "C:/Users/liyah_edwards/Downloads/Lorde reveals how she feels about Charli xcxs song Girl, so confusing  Take 5 with Zan Rowe.mp3"
 i = 0
 notes = [
   :e2,:e2,:d3,:e2,:e2,:e2,:e2,:e2,:e2,:e2,
@@ -22,7 +23,6 @@ define :anynote do |loops, notes, sleeps|
     sleep sleeps
   end
 end
-
 define :param1 do |sleeptime|
   play :cs4
   sleep sleeptime
@@ -38,7 +38,14 @@ define :measures5And4And8 do
   anynote 2, :d4, 0.5
 end
 
-sleep 2
+live_loop :inny do
+  1.times do
+    sample intro, amp: 2
+  end
+  stop
+end
+
+sleep 30
 live_loop :Lorde do
   6.times do
     sample lorde
@@ -48,7 +55,6 @@ live_loop :Lorde do
 end
 
 sleep 4
-
 live_loop :beat do
   64.times do
     sleep 0.5
@@ -145,13 +151,11 @@ live_loop :lyrics do
 end
 
 sleep 32
-
 live_loop :bass do
   4.times do
     16.times do
       play notes[i]
       sleep times[i]
-      
       i = i + 1
       if i > 15
         i = 0
@@ -162,7 +166,6 @@ live_loop :bass do
 end
 
 sleep 32
-
 live_loop :royalsSample do
   4.times do
     sample royals, start: starts[i], finish: starts[i] + 0.25, amp: amps[i]
